@@ -239,4 +239,173 @@
       </table>
     </div>
   </head>
+  <body
+    class="bg-stone-50 p-6"
+    style="font-family: &quot;Philosopher&quot;, sans-serif"
+  >
+    <main class="max-w-3xl mx-auto mt-8">
+      <section
+        id="present-simple-quiz"
+        class="bg-white p-6 rounded-md shadow-md border"
+      >
+        <h2 class="text-2xl font-bold mb-4">
+          Quiz: Present Simple — перекладіть українське речення
+        </h2>
+        <div id="quiz-container">
+          <div id="question-number" class="text-sm text-stone-500 mb-2"></div>
+          <div id="question-text" class="text-lg font-medium mb-4"></div>
+          <div id="options" class="grid gap-3 mb-4"></div>
+          <div class="flex items-center gap-3">
+            <button
+              id="next-btn"
+              class="px-4 py-2 bg-amber-500 text-amber-950 rounded font-semibold"
+            >
+              Next
+            </button>
+            <div id="feedback" class="text-sm"></div>
+            <div
+              class="ml-auto text-sm text-stone-600"
+              id="score-display"
+            ></div>
+          </div>
+        </div>
+        <div id="result" class="hidden mt-4 p-4 bg-amber-50 rounded"></div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const questions = [
+          {
+            ua: "Я живу тут.",
+            correct: "I live here.",
+            wrong: ["I am living here.", "I lived here."],
+          },
+          {
+            ua: "Він не працює в неділю.",
+            correct: "He does not work on Sunday.",
+            wrong: ["He don't work on Sunday.", "He is not working on Sunday."],
+          },
+          {
+            ua: "Чи вона грає на піаніно?",
+            correct: "Does she play the piano?",
+            wrong: ["Is she play the piano?", "Do she plays the piano?"],
+          },
+          {
+            ua: "Ми не розуміємо це.",
+            correct: "We do not understand this.",
+            wrong: [
+              "We are not understanding this.",
+              "We didn't understand this.",
+            ],
+          },
+          {
+            ua: "Вони завжди вчасно.",
+            correct: "They are always on time.",
+            wrong: ["They always are on time.", "They always be on time."],
+          },
+        ];
+
+        function shuffle(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+        }
+
+        let qList = JSON.parse(JSON.stringify(questions));
+        shuffle(qList);
+
+        let index = 0;
+        let score = 0;
+        const total = qList.length;
+
+        const elQuestion = document.getElementById("question-text");
+        const elNumber = document.getElementById("question-number");
+        const elOptions = document.getElementById("options");
+        const elFeedback = document.getElementById("feedback");
+        const elNext = document.getElementById("next-btn");
+        const elScore = document.getElementById("score-display");
+        const elResult = document.getElementById("result");
+
+        function render() {
+          elFeedback.textContent = "";
+          elResult.classList.add("hidden");
+          if (index >= total) {
+            elQuestion.textContent = "";
+            elOptions.innerHTML = "";
+            elNumber.textContent = "";
+            elResult.classList.remove("hidden");
+            elResult.innerHTML =
+              "<strong>Готово!</strong> Your score: " +
+              score +
+              " / " +
+              total +
+              ".";
+            elNext.textContent = "Restart";
+            return;
+          }
+          const q = qList[index];
+          elNumber.textContent = "Question " + (index + 1) + " of " + total;
+          elQuestion.textContent = q.ua;
+          const opts = [q.correct, ...q.wrong];
+          shuffle(opts);
+          elOptions.innerHTML = "";
+          opts.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className =
+              "w-full text-left px-4 py-2 border rounded hover:bg-amber-50";
+            btn.textContent = opt;
+            btn.addEventListener("click", () => onSelect(opt, q.correct, btn));
+            elOptions.appendChild(btn);
+          });
+          elScore.textContent = "Score: " + score + " / " + total;
+        }
+
+        function onSelect(choice, correct, btn) {
+          Array.from(elOptions.children).forEach((b) => (b.disabled = true));
+          if (choice === correct) {
+            score++;
+            btn.classList.add("bg-emerald-100", "border", "border-emerald-300");
+            elFeedback.textContent = "Correct";
+            elFeedback.className = "text-emerald-700";
+          } else {
+            btn.classList.add("bg-red-100", "border", "border-red-300");
+            elFeedback.textContent = "Wrong — correct: " + correct;
+            elFeedback.className = "text-red-700";
+            Array.from(elOptions.children).forEach((b) => {
+              if (b.textContent === correct) {
+                b.classList.add(
+                  "bg-emerald-100",
+                  "border",
+                  "border-emerald-300",
+                );
+              }
+            });
+          }
+          elNext.disabled = false;
+          elNext.focus();
+        }
+
+        elNext.addEventListener("click", () => {
+          if (index >= total) {
+            qList = JSON.parse(JSON.stringify(questions));
+            shuffle(qList);
+            index = 0;
+            score = 0;
+            elNext.textContent = "Next";
+            render();
+            return;
+          }
+          index++;
+          elNext.disabled = true;
+          render();
+        });
+
+        elNext.disabled = true;
+        render();
+      })();
+    </script>
+  </body>
 </html>
