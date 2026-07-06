@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include Google Font link if not already in your head -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <div
+      class="overflow-x-auto rounded-xl border border-amber-200 shadow-md"
+      style="font-family: &quot;Philosopher&quot;, sans-serif"
+    >
+      <table class="w-full text-left border-collapse min-w-[600px]">
+        <thead>
+          <tr
+            class="bg-amber-500 text-amber-950 font-bold text-base border-b border-amber-600"
+          >
+            <th class="p-4 border-r border-amber-400/30 w-[15%]">
+              Час (Tense)
+            </th>
+            <th class="p-4 border-r border-amber-400/30 w-[15%]">
+              Тип речення
+            </th>
+            <th class="p-4 border-r border-amber-400/30 w-[35%]">
+              1. Звичайне дієслово (Regular Verb)
+            </th>
+            <th class="p-4 w-[35%]">2. Дієслово "бути" (Verb "to be")</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-800 text-sm">
+          <!-- PRESENT SIMPLE -->
+          <tr class="bg-amber-50/60 border-b border-amber-100">
+            <td
+              rowspan="3"
+              class="p-4 border-r border-amber-200 font-bold text-amber-900 align-top text-base"
+            >
+              Present Simple
+            </td>
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-amber-50/30"
+            >
+              Розповідне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              I / We / They
+              <span class="font-bold text-amber-700">live</span> here.<br />
+              He / She / It
+              <span class="font-bold text-amber-700">lives</span> here.
+            </td>
+            <td class="p-4 leading-relaxed">
+              I <span class="font-bold text-amber-700">am</span> here.<br />
+              He / She / It
+              <span class="font-bold text-amber-700">is</span> here.<br />
+              We / They <span class="font-bold text-amber-700">are</span> here.
+            </td>
+          </tr>
+          <tr class="bg-amber-50/60 border-b border-amber-100">
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-amber-50/30"
+            >
+              Заперечувальне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              I / We / They
+              <span class="font-bold text-amber-700">do not (don't) live</span>
+              here.<br />
+              He / She / It
+              <span class="font-bold text-amber-700"
+                >does not (doesn't) live</span
+              >
+              here.
+            </td>
+            <td class="p-4 leading-relaxed">
+              I <span class="font-bold text-amber-700">am not</span> here.<br />
+              He / She / It
+              <span class="font-bold text-amber-700">is not (isn't)</span>
+              here.<br />
+              We / They
+              <span class="font-bold text-amber-700">are not (aren't)</span>
+              here.
+            </td>
+          </tr>
+          <tr class="bg-amber-50/60 border-b-2 border-amber-200">
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-amber-50/30"
+            >
+              Запитальне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              <span class="font-bold text-amber-700">Do</span> I / we / they
+              <span class="font-bold text-amber-700">live</span> here?<br />
+              <span class="font-bold text-amber-700">Does</span> he / she / it
+              <span class="font-bold text-amber-700">live</span> here?
+            </td>
+            <td class="p-4 leading-relaxed">
+              <span class="font-bold text-amber-700">Am</span> I here?<br />
+              <span class="font-bold text-amber-700">Is</span> he / she / it
+              here?<br />
+              <span class="font-bold text-amber-700">Are</span> we / they here?
+            </td>
+          </tr>
+
+          <!-- PAST SIMPLE -->
+          <tr class="bg-white border-b border-amber-100">
+            <td
+              rowspan="3"
+              class="p-4 border-r border-amber-200 font-bold text-amber-900 align-top text-base"
+            >
+              Past Simple
+            </td>
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-stone-50/40"
+            >
+              Розповідне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              I / He / She / It / We / They
+              <span class="font-bold text-amber-700">lived</span> here.
+            </td>
+            <td class="p-4 leading-relaxed">
+              I / He / She / It
+              <span class="font-bold text-amber-700">was</span> here.<br />
+              We / They <span class="font-bold text-amber-700">were</span> here.
+            </td>
+          </tr>
+          <tr class="bg-white border-b border-amber-100">
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-stone-50/40"
+            >
+              Заперечувальне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              I / He / She / It / We / They
+              <span class="font-bold text-amber-700"
+                >did not (didn't) live</span
+              >
+              here.
+            </td>
+            <td class="p-4 leading-relaxed">
+              I / He / She / It
+              <span class="font-bold text-amber-700">was not (wasn't)</span>
+              here.<br />
+              We / They
+              <span class="font-bold text-amber-700">were not (weren't)</span>
+              here.
+            </td>
+          </tr>
+          <tr class="bg-white border-b-2 border-amber-200">
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-stone-50/40"
+            >
+              Запитальне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              <span class="font-bold text-amber-700">Did</span> I / he / she /
+              it / we / they
+              <span class="font-bold text-amber-700">live</span> here?
+            </td>
+            <td class="p-4 leading-relaxed">
+              <span class="font-bold text-amber-700">Was</span> I / he / she /
+              it here?<br />
+              <span class="font-bold text-amber-700">Were</span> we / they here?
+            </td>
+          </tr>
+
+          <!-- FUTURE SIMPLE -->
+          <tr class="bg-amber-50/30 border-b border-amber-100">
+            <td
+              rowspan="3"
+              class="p-4 border-r border-amber-200 font-bold text-amber-900 align-top text-base"
+            >
+              Future Simple
+            </td>
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-amber-50/10"
+            >
+              Розповідне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              I / He / She / It / We / They
+              <span class="font-bold text-amber-700">will live</span> here.
+            </td>
+            <td class="p-4 leading-relaxed">
+              I / He / She / It / We / They
+              <span class="font-bold text-amber-700">will be</span> here.
+            </td>
+          </tr>
+          <tr class="bg-amber-50/30 border-b border-amber-100">
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-amber-50/10"
+            >
+              Заперечувальне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              I / He / She / It / We / They
+              <span class="font-bold text-amber-700"
+                >will not (won't) live</span
+              >
+              here.
+            </td>
+            <td class="p-4 leading-relaxed">
+              I / He / She / It / We / They
+              <span class="font-bold text-amber-700">will not (won't) be</span>
+              here.
+            </td>
+          </tr>
+          <tr class="bg-amber-50/30">
+            <td
+              class="p-4 border-r border-amber-200 font-bold text-amber-800 bg-amber-50/10"
+            >
+              Запитальне
+            </td>
+            <td class="p-4 border-r border-amber-200 leading-relaxed">
+              <span class="font-bold text-amber-700">Will</span> I / he / she /
+              it / we / they
+              <span class="font-bold text-amber-700">live</span> here?
+            </td>
+            <td class="p-4 leading-relaxed">
+              <span class="font-bold text-amber-700">Will</span> I / he / she /
+              it / we / they
+              <span class="font-bold text-amber-700">be</span> here?
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </head>
+</html>
